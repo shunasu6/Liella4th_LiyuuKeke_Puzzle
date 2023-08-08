@@ -6,6 +6,8 @@ function setup() {
     var BLOCK = ["tako", "wakame", "kurage", "sakana", "uni", "ika"];
     for(var i=0; i<6; i++) loadImg(1+i, "image/"+BLOCK[i]+".png");
     loadImg(7, "image/title.png");
+    loadImg(8, "image/tap.png");
+    loadImg(9, "image/timeup.png");
     loadSound(0, "sound/bgm.m4a");
     loadSound(1, "sound/se.m4a");
 }
@@ -19,7 +21,8 @@ function mainloop() {
 
     case 0://タイトル画面
     drawImgC(7, 480, 600);//タイトルのロゴ
-    if(tmr%40 < 20) fText("画面をタップ!", 480, 650, 50, "white");
+    if(tmr%40 < 20) drawImgC(8, 500, 600);
+    //if(tmr%40 < 20) fText("画面をタップ!", 480, 650, 50, "white");
     if(key[32]>0 || tapC>0) {
         clrBlock();
         initVar();
@@ -38,7 +41,8 @@ function mainloop() {
     break;
 
     case 2://ゲームオーバー
-    fText("TIME UP!", 480, 420, 100, "violet");
+    drawImgC(9, 500, 600);
+    //fText("TIME UP!", 480, 420, 100, "violet");
     if(tmr > 30*5) idx = 0;
     break;
     }
@@ -106,9 +110,9 @@ function drawPzl() {//ゲーム画面を描く関数
     var x, y;
     drawImg(0, 0, 0);
     for(x=0; x<3; x++) drawImg(block[3+x], 672+80*x, 50);
-    fTextN("TIME\n"+gameTime, 800, 640, 70, 50, "white");
-    fTextN("SCORE\n"+score, 800, 770, 70, 50, "white");
-    fTextN("HI-SC\n"+hisco, 800, 900, 70, 50, "white");
+    fTextN("残り時間\n"+gameTime, 800, 640, 70, 45, "white");
+    fTextN("スコア\n"+score, 800, 780, 70, 45, "white");
+    fTextN("ハイスコア\n"+hisco, 800, 910, 70, 45, "white");
     for(y=1; y<=11; y++) {
         for(x=1; x<=7; x++) {
             if(masu[y][x] > 0) drawImgC(masu[y][x], 80*x, 80*y);
