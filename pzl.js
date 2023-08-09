@@ -109,10 +109,10 @@ function initVar() {//変数の初期化
 function drawPzl() {//ゲーム画面を描く関数
     var x, y;
     drawImg(0, 0, 0);
-    for(x=0; x<3; x++) drawImg(block[3+x], 672+80*x, 50);
-    fTextN("残り時間\n"+gameTime, 800, 640, 70, 45, "white");
-    fTextN("スコア\n"+score, 800, 780, 70, 45, "white");
-    fTextN("ハイスコア\n"+hisco, 800, 910, 70, 45, "white");
+    for(x=0; x<3; x++) drawImg(block[3+x], 670+80*x, 42);
+    fTextN("残り時間\n"+gameTime, 800, 620, 70, 45, "white");
+    fTextN("スコア\n"+score, 800, 760, 70, 45, "white");
+    fTextN("ハイスコア\n"+hisco, 800, 890, 70, 45, "white");
     for(y=1; y<=11; y++) {
         for(x=1; x<=7; x++) {
             if(masu[y][x] > 0) drawImgC(masu[y][x], 80*x, 80*y);
