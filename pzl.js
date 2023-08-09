@@ -21,7 +21,7 @@ function mainloop() {
 
     case 0://タイトル画面
     drawImgC(7, 480, 600);//タイトルのロゴ
-    if(tmr%40 < 20) drawImgC(8, 500, 600);
+    if(tmr%40 < 20) drawImgC(8, 500, 550);
     //if(tmr%40 < 20) fText("画面をタップ!", 480, 650, 50, "white");
     if(key[32]>0 || tapC>0) {
         clrBlock();
