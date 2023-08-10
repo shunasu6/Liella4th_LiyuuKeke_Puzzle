@@ -248,8 +248,8 @@ function procPzl() {//ゲーム中の処理を行う関数
             block[1] = block[4];
             block[2] = block[5];
             c = 4;//ブロックの種類
-            if(score > 10000) c = 5;
-            if(score > 20000) c = 6;
+            if(score > 30000) c = 5;
+            if(score > 40000) c = 6;
             block[3] = 1+rnd(c);//┬次のブロックのセット
             block[4] = 1+rnd(c);//┤
             block[5] = 1+rnd(c);//┘
